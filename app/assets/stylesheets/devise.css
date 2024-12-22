@@ -1,0 +1,103 @@
+/* 背景設定 */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* フォーム全体のスタイル */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-box {
+  width: 100%;
+}
+
+/* タイトル */
+.auth-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* フォーム内の入力フィールド */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%; /* フォーム全体を白枠内で100%に広げる */
+  padding: 0 20px; /* 左右に余白を確保 */
+  box-sizing: border-box; /* paddingを含めた幅調整 */
+}
+
+.auth-input {
+  width: 100%; /* 入力フィールドをフォームの幅に合わせる */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box; /* paddingを含めて幅を調整 */
+}
+
+.actions {
+  text-align: center; /* ボタンを中央に配置 */
+}
+
+.auth-button {
+  width: 100%; /* ボタンの横幅をフォーム全体に合わせる */
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #4facfe;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.auth-button:hover {
+  background-color: #00f2fe;
+}
+
+/* リンク */
+.auth-links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.auth-links a {
+  color: #4facfe;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.auth-links a:hover {
+  color: #00f2fe;
+}
+
+/* チェックボックス */
+.auth-checkbox {
+  margin-right: 5px;
+}
+
+.auth-checkbox-label {
+  font-size: 14px;
+  color: #333333;
+}
