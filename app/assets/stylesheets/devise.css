@@ -47,12 +47,17 @@ body {
 }
 
 .auth-input {
-  width: 100%; /* 入力フィールドをフォームの幅に合わせる */
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #dddddd;
   border-radius: 5px;
-  box-sizing: border-box; /* paddingを含めて幅を調整 */
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.auth-input::placeholder {
+  color: #888;
 }
 
 .actions {
@@ -71,6 +76,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .auth-button:hover {
   background-color: #00f2fe;
 }
@@ -92,12 +98,72 @@ body {
   color: #00f2fe;
 }
 
-/* チェックボックス */
-.auth-checkbox {
-  margin-right: 5px;
+/* SNS認証ボタン */
+.social-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.auth-checkbox-label {
-  font-size: 14px;
-  color: #333333;
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: #333;
+}
+
+.social-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.social-button.google {
+  border-color: #4285f4;
+}
+
+.social-button.google:hover {
+  background-color: #e8f0fe;
+}
+
+.social-button.facebook {
+  border-color: #1877f2;
+}
+
+.social-button.facebook:hover {
+  background-color: #e7f3ff;
+}
+
+/* 区切り線 */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #888;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
 }

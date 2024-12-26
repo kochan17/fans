@@ -10,41 +10,45 @@
           <%= f.email_field :email, placeholder: "Eメール", autofocus: true, class: "auth-input", autocomplete: "email" %>
         </div>
 
-        <%# <div class="field">
-          <%= f.password_field :password, placeholder: "パスワード", class: "auth-input", autocomplete: "new-password" %>
-        <%# </div>
+        <% if @sns_id.present? %>
+          <%= hidden_field_tag :sns_auth, true %>
+        <% else %>
+          <div class="field">
+            <%= f.label :password %>
+            <% @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
 
-        <div class="field">
-          <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "auth-input", autocomplete: "new-password" %>
-        <%# </div>  %>
-         <%if @sns_id.present? %>
-            <%= hidden_field_tag :sns_auth, true %>
-          <% else %>
-            <div class="field">
-              <%= f.label :password %>
-              <% @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> 文字以上)</em>
-              <br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            </div>
-          <% end %>
-
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+        <% end %>
+        
         <div class="actions">
           <%= f.submit "サインアップ", class: "auth-button" %>
         </div>
       </div>
     <% end %>
 
+    <div class="divider">または</div>
+
+    <div class="social-auth-buttons">
+      <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "social-button google", data: { turbo: false } do %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google" class="social-icon">
+        Googleで登録
+      <% end %>
+
+      <%= link_to user_facebook_omniauth_authorize_path, method: :post, class: "social-button facebook", data: { turbo: false } do %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="social-icon">
+        Facebookで登録
+      <% end %>
+    </div>
+
     <div class="auth-links">
       <%= link_to "すでにアカウントをお持ちですか？ ログイン", new_session_path(resource_name) %>
     </div>
   </div>
-
-  <%= button_to "Facebookで登録", user_facebook_omniauth_authorize_path, data: { turbo: false } %>
-  <%= button_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, data: { turbo: false } %>
 </div>
